@@ -1,0 +1,212 @@
+body {
+    background-color: #f5f5f5;
+    color: #333;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.header {
+    background-color: #2c3e50;
+    color: white;
+    padding: 1rem 2rem;
+    margin-bottom: 2rem;
+}
+
+.site-title {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.main-nav ul {
+    display: flex;
+    gap: 2rem;
+    margin-top: 1rem;
+}
+
+.nav-link {
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.nav-link:hover {
+    background-color: #34495e;
+}
+
+.nav-link.active {
+    background-color: #e74c3c;
+    font-weight: bold;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.content-section > .post {
+    background: white;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.post.featured-post {
+    border-left: 4px solid #e74c3c;
+    background: #fffaf0;
+}
+
+.post h3 + .post-text {
+    margin-top: 1rem;
+    color: #666;
+}
+
+.highlight {
+    color: #e74c3c;
+    font-weight: bold;
+}
+
+.post .highlight {
+    background-color: yellow;
+    padding: 2px 4px;
+}
+
+.content-section .post .highlight {
+    background-color: #ffeb3b;
+    border-radius: 3px;
+}
+
+#main-header .main-nav .nav-link.active {
+    background-color: #c0392b !important;
+}
+
+.post {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #2c3e50;
+}
+
+.post-text {
+    
+    margin-bottom: 1rem;
+}
+
+.btn {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.btn.read-more {
+    background-color: #3498db;
+    color: white;
+}
+
+.btn.read-more:hover {
+    background-color: #2980b9;
+}
+
+.btn.secondary {
+    background-color: #95a5a6;
+    color: white;
+}
+
+.btn.secondary:hover {
+    background-color: #7f8c8d;
+}
+
+.widget-list li:nth-child(odd) {
+    background-color: #ecf0f1;
+}
+
+.widget-list li:nth-child(even) {
+    background-color: #f8f9fa;
+}
+
+.widget-list li:first-child {
+    font-weight: bold;
+}
+
+.widget-list li:last-child {
+    border-bottom: none;
+}
+
+.section-title::before {
+    content: "📁 ";
+    margin-right: 0.5rem;
+}
+
+.section-title::after {
+    content: "";
+    display: block;
+    width: 50px;
+    height: 3px;
+    background: #3498db;
+    margin-top: 0.5rem;
+}
+
+.copyright::before {
+    content: "© ";
+}
+
+@media (max-width: 768px) {
+    .container {
+        grid-template-columns: 1fr;
+    }
+    
+    .main-nav ul {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .site-title {
+        font-size: 1.5rem;
+    }
+}
+
+:root {
+    --primary-color: #3498db;
+    --secondary-color: #2c3e50;
+    --accent-color: #e74c3c;
+    --text-color: #333;
+    --bg-color: #f5f5f5;
+}
+
+/* Анимации */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.post {
+    animation: fadeIn 0.5s ease-out;
+}
+
+/* currentColor пример */
+.btn {
+    border: 2px solid currentColor;
+}
+
+.widget-item.important {
+    color: var(--accent-color);
+    /* border унаследует цвет текста через currentColor */
+    border-left: 3px solid currentColor;
+    padding-left: 0.5rem;
+}
