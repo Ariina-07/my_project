@@ -1,0 +1,17 @@
+:root {
+
+    --color-white: white;
+    --color-black: black;
+    --color-brown: #603809;
+    --color-dark-brown: #442808;
+    --color-yellow: #F9C06A;
+    --color-gray: #707070;
+    
+    --container-width: 1366px;
+    --header-height: 768px;
+    
+
+    --gap-small: 20px;
+    --gap-medium: 50px;
+    --gap-large: 60px;
+}
