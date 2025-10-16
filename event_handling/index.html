@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Обработка событий</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Практическая работа: Обработка событий</h1>
+    </header>
+
+    <main>
+        <section class="container">
+            <h2>1. Базовые обработчики</h2>
+            <button id="basic-btn">Кликни меня</button>
+            <div id="basic-output"></div>
+            
+            <div id="color-box" class="color-box">Наведи курсор</div>
+            <div id="mouse-output"></div>
+        </section>
+
+        <section class="container">
+            <h2>2. События клавиатуры</h2>
+            <input type="text" id="key-input" placeholder="Набери текст...">
+            <div id="key-output"></div>
+        </section>
+
+        <section class="container">
+            <h2>3. Делегирование событий</h2>
+            <button id="add-item-btn">Добавить элемент</button>
+            <ul id="item-list">
+                <li class="item" data-id="1">Элемент 1 <button class="delete">Удалить</button></li>
+                <li class="item" data-id="2">Элемент 2 <button class="delete">Удалить</button></li>
+            </ul>
+            <div id="delegation-output"></div>
+        </section>
+
+        <section class="container">
+            <h2>4. Предотвращение поведения</h2>
+            <a href="https://google.com" id="prevent-link">Эта ссылка не работает</a>
+            <form id="prevent-form">
+                <input type="text" placeholder="Введите текст" required>
+                <button type="submit">Отправить</button>
+            </form>
+            <div id="prevention-output"></div>
+        </section>
+
+    
+        <section class="container">
+            <h2>5. Кастомные события</h2>
+            <button id="trigger-custom">Запустить кастомное событие</button>
+            <div id="custom-output"></div>
+        </section>
+    </main>
+
+    <script src="events-tasks.js"></script>
+</body>
+</html>
