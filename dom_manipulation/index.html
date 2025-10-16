@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Manipulation</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header id="main-header">
+        <h1>Практическая работа: Манипуляции DOM</h1>
+    </header>
+
+    <main>
+        <section id="target1" class="container">
+            <h2>Цель 1: Создание элементов</h2>
+            <button onclick="createCard('Тестовая карточка', 'Это содержимое тестовой карточки')">Создать карточку</button>
+            <button onclick="createList(['Первый элемент', 'Второй элемент', 'Третий элемент'])">Создать список</button>
+        </section>
+
+        <section id="parent-element" class="container">
+            <h2>Цель 2: Навигация по DOM</h2>
+            <div class="child">Обычный дочерний элемент</div>
+            <div class="child special">Специальный дочерний элемент</div>
+            <div class="child">Еще один дочерний элемент</div>
+            <button onclick="alert('Количество детей: ' + countChildren())">Посчитать детей</button>
+            <button onclick="alert('Текст специального элемента: ' + findSpecialChild())">Найти специальный элемент</button>
+            <button onclick="alert('Цвет фона родителя: ' + getParentBackground())">Цвет фона родителя</button>
+        </section>
+
+        <section class="container">
+            <h2>Цель 3: Работа с классами и стилями</h2>
+            <div id="style-target" class="style-box">Элемент для стилизации</div>
+            <button id="toggle-style">Переключить стиль</button>
+            <button onclick="changeHeaderColor()">Изменить цвет заголовка</button>
+            <button onclick="animateElement()">Запустить анимацию</button>
+        </section>
+
+        <section class="container">
+            <h2>Цель 4: Обработка событий</h2>
+            <button id="click-btn">Кликни меня</button>
+            <span id="click-counter">0</span> кликов
+            <br><br>
+            <input type="text" id="text-input" placeholder="Введите текст">
+            <div id="input-display"></div>
+        </section>
+
+        <section class="container">
+            <h2>Цель 5: Динамические списки</h2>
+            <input type="text" id="item-input" placeholder="Введите элемент списка">
+            <button id="add-btn">Добавить</button>
+            <button id="clear-btn">Очистить список</button>
+            <ul id="dynamic-list"></ul>
+        </section>
+
+        <section class="container">
+            <h2>Цель 6: Работа с формами</h2>
+            <form id="user-form">
+                <div>
+                    <label for="name">Имя:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div>
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div>
+                    <label for="age">Возраст:</label>
+                    <input type="number" id="age" name="age" required>
+                </div>
+                <button type="submit">Отправить</button>
+            </form>
+            <div id="form-output"></div>
+        </section>
+    </main>
+
+    <script src="dom-tasks.js"></script>
+    <script src="dom-tests.js"></script>
+</body>
+</html>
