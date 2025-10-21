@@ -1,0 +1,19 @@
+1. Fetch API использует Promises, а XMLHttpRequest - колбэки. Fetch проще в использовании и читаемости кода.
+
+2. Fetch не считает HTTP ошибки (404, 500) за reject. Нужно проверять response.ok или response.status вручную.
+
+3. GET - получить данные, POST - создать, PUT - обновить всё, PATCH - обновить часть, DELETE - удалить.
+
+4. Заголовки задаются в headers: {}. Полезные: Content-Type, Authorization, Accept.
+
+5. PUT заменяет весь ресурс, PATCH обновляет только указанные поля.
+
+6. Basic Auth: 'Authorization': 'Basic логин:пароль в base64'. Bearer Token: 'Authorization': 'Bearer токен'.
+
+7. Через AbortController: создаем controller, передаем signal в fetch, controller.abort() для отмены.
+
+8. JSON: response.json(), FormData: new FormData(), Blob: response.blob(), Text: response.text().
+
+9. Promise.all() для параллельных запросов, кэширование результатов, отмена лишних запросов.
+
+10. Проверять response.ok, использовать правильные методы, добавлять таймауты, обрабатывать ошибки.
