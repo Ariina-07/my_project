@@ -1,0 +1,23 @@
+Получить все задачи
+GET http://localhost:5000/api/items
+
+Создать новую задачу
+POST http://localhost:5000/api/items
+Content-Type: application/json
+
+{
+  "title": "Новая задача из запроса",
+  "description": "Описание новой задачи"
+}
+
+Обновить задачу с ID=1
+PUT http://localhost:5000/api/items/1
+Content-Type: application/json
+
+{
+  "title": "Обновленное название",
+  "completed": true
+}
+
+Удалить задачу с ID=2
+DELETE http://localhost:5000/api/items/2
