@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тестовый клиент для API</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        
+        button:hover {
+            background-color: #0056b3;
+        }
+        
+        pre {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 4px;
+            border: 1px solid #e9ecef;
+            overflow-x: auto;
+        }
+        
+        .response {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Тестовый клиент для Node.js API</h1>
+    
+    <div class="container">
+        <h2>Тестирование GET запросов</h2>
+        
+        <button onclick="testRoot()">Тест корневого пути (/)</button>
+        <button onclick="testUsers()">Получить пользователей</button>
+        <button onclick="testProducts()">Получить продукты</button>
+        
+        <div class="response">
+            <pre id="getResponse">Ответ появится здесь...</pre>
+        </div>
+    </div>
+    
+    <div class="container">
+        <h2>Тестирование POST запросов</h2>
+        
+        <button onclick="testContact()">Отправить контактные данные</button>
+        <button onclick="testCreateUser()">Создать пользователя</button>
+        
+        <div class="response">
+            <pre id="postResponse">Ответ появится здесь...</pre>
+        </div>
+    </div>
+
+    <script>
+        const BASE_URL = 'http://localhost:3001';
+        
+        // Функции для GET запросов
+        async function testRoot() {
+            try {
+                const response = await fetch(BASE_URL + '/');
+                const data = await response.json();
+                document.getElementById('getResponse').textContent = JSON.stringify(data, null, 2);
+            } catch (error) {
+                document.getElementById('getResponse').textContent = 'Ошибка: ' + error.message;
+            }
+        }
+        
+        async function testUsers() {
+            try {
+                const response = await fetch(BASE_URL + '/api/users');
+                const data = await response.json();
+                document.getElementById('getResponse').textContent = JSON.stringify(data, null, 2);
+            } catch (error) {
+                document.getElementById('getResponse').textContent = 'Ошибка: ' + error.message;
+            }
+        }
+        
+        async function testProducts() {
+            try {
+                const response = await fetch(BASE_URL + '/api/products');
+                const data = await response.json();
+                document.getElementById('getResponse').textContent = JSON.stringify(data, null, 2);
+            } catch (error) {
+                document.getElementById('getResponse').textContent = 'Ошибка: ' + error.message;
+            }
+        }
+        
+        // Функции для POST запросов
+        async function testContact() {
+            try {
+                const contactData = {
+                    name: 'Тестовый Пользователь',
+                    email: 'test@example.com',
+                    message: 'Это тестовое сообщение с клиента'
+                };
+                
+                const response = await fetch(BASE_URL + '/api/contact', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(contactData)
+                });
+                
+                const data = await response.json();
+                document.getElementById('postResponse').textContent = JSON.stringify(data, null, 2);
+            } catch (error) {
+                document.getElementById('postResponse').textContent = 'Ошибка: ' + error.message;
+            }
+        }
+        
+        async function testCreateUser() {
+            try {
+                const userData = {
+                    name: 'Новый Пользователь',
+                    email: 'newuser@example.com',
+                    age: 25
+                };
+                
+                const response = await fetch(BASE_URL + '/api/users', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(userData)
+                });
+                
+                const data = await response.json();
+                document.getElementById('postResponse').textContent = JSON.stringify(data, null, 2);
+            } catch (error) {
+                document.getElementById('postResponse').textContent = 'Ошибка: ' + error.message;
+            }
+        }
+    </script>
+</body>
+</html>

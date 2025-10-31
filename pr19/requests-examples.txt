@@ -1,0 +1,38 @@
+1. Базовый сервер (порт 3000)
+
+GET запросы:
+curl -X GET http://localhost:3000/
+curl -X GET http://localhost:3000/api/users
+curl -X GET http://localhost:3000/api/products
+
+POST запрос:
+curl -X POST http://localhost:3000/api/contact \
+  -H "Content-Type: application/json" \
+  -d '{"name":"Иван","email":"ivan@test.ru","message":"Привет!"}'
+
+2. Расширенный сервер с middleware (порт 3001)
+
+GET запросы:
+curl -X GET http://localhost:3001/
+curl -X GET http://localhost:3001/api/users
+curl -X GET http://localhost:3001/api/products
+curl -X GET http://localhost:3001/public/client.html
+
+POST запросы:
+curl -X POST http://localhost:3001/api/users \
+  -H "Content-Type: application/json" \
+  -d '{"name":"Петр","email":"petr@test.ru","age":30}'
+
+curl -X POST http://localhost:3001/api/contact \
+  -H "Content-Type: application/json" \
+  -d '{"name":"Анна","email":"anna@test.ru","message":"Тестовое сообщение"}'
+
+3. Тестирование ошибок
+
+Несуществующий маршрут:
+curl -X GET http://localhost:3001/api/nonexistent
+
+Некорректный JSON:
+curl -X POST http://localhost:3001/api/contact \
+  -H "Content-Type: application/json" \
+  -d 'invalid-json'
