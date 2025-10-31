@@ -1,0 +1,80 @@
+=== Тестовые запросы для REST API книг ===
+
+1. GET - Получение книг
+
+Все книги:
+curl -X GET http://localhost:3000/api/books
+
+С пагинацией:
+curl -X GET "http://localhost:3000/api/books?page=1&limit=2"
+
+С фильтрацией по автору:
+curl -X GET "http://localhost:3000/api/books?author=Толстой"
+
+С фильтрацией по жанру:
+curl -X GET "http://localhost:3000/api/books?genre=Роман"
+
+С фильтрацией по году:
+curl -X GET "http://localhost:3000/api/books?year=1869"
+
+Книга по ID:
+curl -X GET http://localhost:3000/api/books/1
+
+2. POST - Создание книги
+
+Новая книга:
+curl -X POST http://localhost:3000/api/books \
+  -H "Content-Type: application/json" \
+  -d '{
+    "title": "1984",
+    "author": "Джордж Оруэлл",
+    "genre": "Антиутопия",
+    "year": 1949,
+    "isbn": "978-5-17-090459-0",
+    "pages": 328
+  }'
+
+3. PUT - Полное обновление
+
+curl -X PUT http://localhost:3000/api/books/1 \
+  -H "Content-Type: application/json" \
+  -d '{
+    "title": "Война и мир (обновленное)",
+    "author": "Лев Толстой",
+    "genre": "Классика",
+    "year": 1869,
+    "isbn": "978-5-699-12014-8",
+    "pages": 1300
+  }'
+
+4. PATCH - Частичное обновление
+
+curl -X PATCH http://localhost:3000/api/books/1 \
+  -H "Content-Type: application/json" \
+  -d '{
+    "pages": 1250,
+    "genre": "Русская классика"
+  }'
+
+5. DELETE - Удаление книги
+
+curl -X DELETE http://localhost:3000/api/books/1
+
+6. Тестирование ошибок
+
+Несуществующая книга:
+curl -X GET http://localhost:3000/api/books/999
+
+Некорректные данные:
+curl -X POST http://localhost:3000/api/books \
+  -H "Content-Type: application/json" \
+  -d '{"author": "Только автор"}'
+
+Дубликат ISBN:
+curl -X POST http://localhost:3000/api/books \
+  -H "Content-Type: application/json" \
+  -d '{
+    "title": "Другая книга",
+    "author": "Другой автор", 
+    "isbn": "978-5-699-12014-7"
+  }'
