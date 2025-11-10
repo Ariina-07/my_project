@@ -14,4 +14,8 @@
 Установка:
 composer create-project laravel/laravel my-project
 cd my-project
+
 php artisan serve
+
+Пример работы приложения
+![5228798503503465616](https://github.com/user-attachments/assets/2a673fb4-d049-4b23-87c2-d113cc9fddf7)
